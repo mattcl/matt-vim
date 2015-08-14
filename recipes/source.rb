@@ -3,7 +3,7 @@
 # Recipe:: source
 #
 # Copyright (c) 2015 The Authors, All Rights Reserved.
-node['vim']['source']['dependencies'].each do |dependency|
+node['matt-vim']['source']['dependencies'].each do |dependency|
   package dependency do
     action :install
   end
