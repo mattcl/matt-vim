@@ -1,0 +1,16 @@
+Style/BracesAroundHashParameters:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+# this makes it clearer that something is a hash vs a block
+Style/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+Style/SingleSpaceBeforeFirstArg:
+  Exclude:
+    - 'metadata.rb'
+
+Metrics/MethodLength:
+  Enabled: false
