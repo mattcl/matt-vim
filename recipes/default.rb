@@ -8,6 +8,10 @@ include_recipe 'git'
 include_recipe 'mercurial'
 include_recipe 'build-essential::default'
 
+node.set['cmake']['install_method'] = 'source'
+
+include_recipe 'cmake::default'
+
 include_recipe 'matt-vim::source'
 
 username = node['matt-vim']['user']
@@ -16,7 +20,6 @@ user_home = "/home/#{username}"
 # clone from git .vim repo
 git "#{user_home}/.vim" do
   repository node['matt-vim']['config_repo']
-  checkout_branch 'master'
   revision 'master'
   user username
   group username
@@ -42,7 +45,6 @@ end
 # install vundle
 git "#{user_home}/.vim/bundle/Vundle.vim" do
   repository node['matt-vim']['vundle_repo']
-  checkout_branch 'master'
   revision 'master'
   user username
   group username

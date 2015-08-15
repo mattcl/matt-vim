@@ -16,6 +16,6 @@ mercurial '/tmp/vim' do
 end
 
 execute 'compile-vim' do
-  command "cd /tmp/vim && ./configure #{node['vim']['source']['configuration']} \ && make -j 3 && sudo make install" # rubocop:disable Metrics/LineLength
+  command "cd /tmp/vim && ./configure #{node['matt-vim']['source']['configuration']} \ && make -j 3 && sudo make install" # rubocop:disable Metrics/LineLength
   action :nothing
 end
