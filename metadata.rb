@@ -4,7 +4,7 @@ maintainer_email 'mchunlum@gmail.com'
 license          'all_rights'
 description      'Installs/Configures matt-vim'
 long_description 'Installs/Configures matt-vim'
-version          '1.2.0'
+version          '1.2.1'
 
 depends 'apt'
 depends 'cmake'

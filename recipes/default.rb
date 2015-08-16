@@ -69,3 +69,36 @@ execute 'compile-ycm' do
   only_if { File.exist?(ycm_path) }
   action :nothing
 end
+
+# fonts
+conf_dir = '.config/fontconfig/conf.d'
+conf_dir.split('/').inject(user_home) do |cur, dir|
+  cur = File.join(cur, dir)
+  directory cur do
+    owner username
+    group username
+  end
+
+  cur
+end
+
+directory File.join(user_home, '.fonts') do
+  owner username
+  group username
+end
+
+remote_file File.join(user_home, '.fonts', 'PowerlineSymbols.otf') do
+  source node['matt-vim']['powerlinefonts']['font']
+  owner username
+  group username
+  mode 0644
+  action :create
+end
+
+remote_file File.join(user_home, conf_dir, '10-powerline-symbols.conf') do
+  source node['matt-vim']['powerlinefonts']['config']
+  owner username
+  group username
+  mode 0644
+  action :create
+end
